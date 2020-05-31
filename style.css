@@ -1,0 +1,15 @@
+  .inActive {
+    pointer-events: none;
+    color: gray;
+  }
+
+  .taskarea {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: #fafad2;
+    padding: 10px 10px 10px 10px;
+  }
+
+  .completed {
+    text-decoration: line-through;
+  }
