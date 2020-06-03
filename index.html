@@ -5,29 +5,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todolist</title>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  <script src="/script.js"></script>
-  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reset.css">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div id="app">
-  <h1>ToDo リスト</h1>
-  <label>ジャンル</label>
-  <select v-model="selectedGenre">
-    <option v-for="genre in genres" :value="genre">{{ genre }}</option>
-  </select>
-  <br><br>
-  <label>タスク</label>
-  <textarea v-model="task"></textarea>
-  <br><br>
-  <button @click="addTask" :class="{ inactive: isBlank}">追加</button>
-  <hr>
 
-  <task-component v-for="(task, index) in taskList" v-bind:taskname="task.taskname" v-bind:date="task.date"
-    v-bind:genre="task.genre" v-bind:index="index"></task-component>
-</div>
-
+  <div id="app">
+    <div class="title">
+      <div class="inner">
+        <h1>Today’s<br>list —</h1>
+      </div>
+    </div>
+    <div class="main">
+      <div class="inner">
+        <label>ジャンル</label>
+        <div class="select-wrap">
+          <select v-model="selectedGenre">
+            <option v-for="genre in genres" :value="genre">{{ genre }}</option>
+          </select>
+        </div>
+        <label>タスク</label>
+        <div class="textarea-wrap">
+          <textarea v-model="task"></textarea>
+        </div>
+        <div class="add-button-wrap">
+          <button @click="addTask" :class="{ inactive: isBlank}">追加</button>
+        </div>
+        <task-component v-for="(task, index) in taskList" v-bind:taskname="task.taskname" v-bind:date="task.date"
+          v-bind:genre="task.genre" v-bind:index="index"></task-component>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
